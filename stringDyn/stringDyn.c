@@ -22,7 +22,7 @@ char *stringDyn_create(char *s)
     char *final_string = NULL;
 
     n = strlen(s) + 1;
-    final_string = (char)malloc(n * sizeof(char));
+    final_string = (char *)malloc(n * sizeof(char));
     if(final_string == NULL)
     {
         return NULL;
@@ -84,25 +84,18 @@ char *stringDyn_concat_realloc(char *s1, char *s2)
 */
 char *stringDyn_int_to_string(int n)
 {
-    int i;
-    int nb_digit;
-    char *to_string;
+    char to_string[stringDyn_MAX_INT_LENGTH];
+    char *final = NULL;
 
-    /* Get the number of digit encoding the integer */
-    nb_digit = 2; /* One forgotten digit + \0 */
-    while(n > 0)
-    {
-        n = n / stringDyn_STEP;
-        nb_digit++;
-    }
+    sprintf(to_string, "%d", n);
 
-    to_string = (char *)malloc(n * sizeof(char));
-    if(to_string == NULL)
+    final = (char *)malloc((strlen(to_string) + 1) * sizeof(char));
+    if(final == NULL)
     {
         return NULL;
     }
 
-    sprintf(to_string, "%d", n);
+    strcpy(final, to_string);
 
-    return to_string;
+    return final;
 }

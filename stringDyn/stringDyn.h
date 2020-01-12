@@ -11,6 +11,7 @@
 #ifndef STRING_DYN_H
 #define STRING_DYN_H
 #include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 
 #define stringDyn_STEP 10
@@ -37,5 +38,11 @@ char *stringDyn_concat_new(char *s1, char *s2);
  * 
 */
 char *stringDyn_concat_realloc(char *s1, char *s2);
+
+/**
+ * Take an int and return a string encoding this integer
+ * Return NULL if failed
+*/
+char *stringDyn_int_to_string(int n);
 
 #endif
