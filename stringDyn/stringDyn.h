@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#define stringDyn_STEP 10
+#define stringDyn_MAX_INT_LENGTH 12
 
 /**
  * Create a string with the content of s.
