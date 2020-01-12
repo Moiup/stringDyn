@@ -77,3 +77,32 @@ char *stringDyn_concat_realloc(char *s1, char *s2)
 
     return s1;
 }
+
+/**
+ * Take an int and return a string encoding this integer
+ * Return NULL if failed
+*/
+char *stringDyn_int_to_string(int n)
+{
+    int i;
+    int nb_digit;
+    char *to_string;
+
+    /* Get the number of digit encoding the integer */
+    nb_digit = 2; /* One forgotten digit + \0 */
+    while(n > 0)
+    {
+        n = n / stringDyn_STEP;
+        nb_digit++;
+    }
+
+    to_string = (char *)malloc(n * sizeof(char));
+    if(to_string == NULL)
+    {
+        return NULL;
+    }
+
+    sprintf(to_string, "%d", n);
+
+    return to_string;
+}

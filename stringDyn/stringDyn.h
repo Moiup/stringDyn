@@ -13,6 +13,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define stringDyn_STEP 10
+
 /**
  * Create a string with the content of s.
  * Useful if you want to write : stringDyn_create("hello world!");
