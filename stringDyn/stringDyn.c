@@ -104,9 +104,43 @@ char *stringDyn_int_to_string(int n)
  * Take a double and convert it into a string
  * n: the number of value to keep after the .
 */
-char *stringDyn_double_to_string(double d, int n)
+char *stringDyn_float_to_string(float d, int n)
 {
+    int i;
     int int_part = d;
+    float decimal_part;
+    char * double_string;
+    char * final_string;
+    int unit;
 
+    final_string = stringDyn_int_to_string(int_part);
+    if(final_string == NULL)
+    {
+        return NULL;
+    }
+
+    /* Creating the string containing the value below 0 */
+    /* We add 2 because, first value is '.' and last '\0' */
+    double_string = (char *)malloc((n + 2) * sizeof(char));
+    if(double_string == NULL)
+    {
+        return NULL;
+    }
+
+    decimal_part = d - int_part;
+    double_string[0] = '.';
+    for(i = 1; i <= n; i++)
+    {
+        unit = decimal_part * stringDyn_TEN_BASE;
+        double_string[i] = '0' + unit;
+        decimal_part = decimal_part * stringDyn_TEN_BASE - unit;
+    }
+
+    double_string[n + 1] = '\0';
     
+    final_string = stringDyn_concat_realloc(final_string, double_string);
+
+    free(double_string);
+
+    return final_string;
 }

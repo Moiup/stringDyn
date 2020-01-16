@@ -15,6 +15,10 @@
 #include <string.h>
 
 #define stringDyn_MAX_INT_LENGTH 12
+#define stringDyn_TEN_BASE 10
+
+#define stringDyn_FLOAT_BEGIN 1
+
 
 /**
  * Create a string with the content of s.
@@ -44,5 +48,12 @@ char *stringDyn_concat_realloc(char *s1, char *s2);
  * Return NULL if failed
 */
 char *stringDyn_int_to_string(int n);
+
+/**
+ * Take a double and convert it into a string
+ * n: the number of value to keep after the .
+*/
+char *stringDyn_float_to_string(float d, int n);
+
 
 #endif
