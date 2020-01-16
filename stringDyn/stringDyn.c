@@ -99,3 +99,14 @@ char *stringDyn_int_to_string(int n)
 
     return final;
 }
+
+/**
+ * Take a double and convert it into a string
+ * n: the number of value to keep after the .
+*/
+char *stringDyn_double_to_string(double d, int n)
+{
+    int int_part = d;
+
+    
+}
