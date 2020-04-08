@@ -1,7 +1,6 @@
 # stringDyn
-Library with useful string function. Everything is dynamic, so it needs a free.
+A library to play with strings in C. It uses dynamic allocation in order to adapt string size so you do not have to worry about this constraints. Do not forget to free the memory.
 
+The folder stringDyn contain the .c and .h files.
 
-## Function to be done :
-- convert int to string
-- convert float/double to string
+The folder Doc containt [the documentation.](./Doc/stringDyn-doc.md)
