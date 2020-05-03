@@ -18,19 +18,7 @@
 */
 char *stringDyn_create(char *s)
 {
-    int n;
-    char *final_string = NULL;
-
-    n = strlen(s) + 1;
-    final_string = (char *)malloc(n * sizeof(char));
-    if(final_string == NULL)
-    {
-        return NULL;
-    }
-
-    strcpy(final_string, s);
-
-    return final_string;
+    return strdup(s);
 }
 
 /**
