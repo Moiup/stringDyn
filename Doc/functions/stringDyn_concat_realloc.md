@@ -2,7 +2,7 @@
 
 # stringDyn_concat_realloc(\_,\_)
 
-Connect the client to a given server
+Concats the second string in the first one (with reallocation).
 
 ## **Declaration**
 
@@ -21,4 +21,4 @@ The first string.
 The second string.
 
 ## **Result**
-Return the concatenation of `s1` with `s2` by reallocating `s1`.
+Returns the concatenation of `s1` with `s2` by reallocating `s1`. Returns `NULL` if failed.

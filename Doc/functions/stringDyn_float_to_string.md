@@ -2,7 +2,7 @@
 
 # stringDyn_int_to_string(\_)
 
-Connect the client to a given server
+Converts a float to a string.
 
 ## **Declaration**
 
@@ -22,4 +22,4 @@ The number of digits to put after the `.`.
 
 
 ## **Result**
-Return the string representing the float `d`.
+Returns the string representing the float `d`. Returns `NULL` if failed.

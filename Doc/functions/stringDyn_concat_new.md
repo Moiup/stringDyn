@@ -2,7 +2,7 @@
 
 # stringDyn_concat_new(\_,\_)
 
-Connect the client to a given server
+Concats two strings by returning a new one.
 
 ## **Declaration**
 
@@ -21,4 +21,4 @@ The first string.
 The second string.
 
 ## **Result**
-Return the concatenation of `s1` with `s2`.
+Returns the concatenation of `s1` with `s2`. `NULL` if failed.

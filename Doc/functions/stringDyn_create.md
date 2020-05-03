@@ -2,7 +2,7 @@
 
 # stringDyn_create(\_)
 
-Connect the client to a given server
+Creates a string.
 
 ## **Declaration**
 
@@ -17,4 +17,10 @@ char *stringDyn_create(
 The string which is going to be created.
 
 ## **Result**
-Return the created string.
+
+Returns the created string. `NULL` if failed
+
+It is just a masking of
+```C
+char *strdup(char)
+```

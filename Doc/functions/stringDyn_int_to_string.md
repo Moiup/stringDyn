@@ -2,7 +2,7 @@
 
 # stringDyn_int_to_string(\_)
 
-Connect the client to a given server
+Converts an int into a string.
 
 ## **Declaration**
 
@@ -18,4 +18,4 @@ The integer to rewrite as a string.
 
 
 ## **Result**
-Return the string representing the integer `n`.
+Returns the string representing the integer `n`. Returns `NULL` if failed.
