@@ -2,14 +2,21 @@
 
 int main()
 {
-    char * res;
-    double d = 1.23345;
+    int n_tab;
+    int i;
+    char **tab;
+    char *test = strdup("Bonjour Saint-Louis !!!  !!");
 
-    res = stringDyn_float_to_string(d, 6);
+    tab = stringDyn_split(test, " ", 1, &n_tab);
+    fprintf(stdout, "%s\n", test);
+    fprintf(stdout, "%d\n", n_tab);
 
-    fprintf(stdout, "%f %s\n", d, res);
+    for(i = 0; i < n_tab; i++)
+    {
+        fprintf(stdout, "%s\n", tab[i]);
+    }
 
-    free(res);
+    // fprintf(stdout, "%s\n", test);
 
     return EXIT_SUCCESS;
 }

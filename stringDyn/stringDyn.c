@@ -67,6 +67,58 @@ char *stringDyn_concat_realloc(char *s1, char *s2)
 }
 
 /**
+ *  Return an array of string value
+ *
+ *  s: the string to split
+ *  d: the delimiter to use
+ *  n: the number of cut to make (0 to split as much as the number of delimiter found)
+ *  n_tab: while store the size of the resulting array
+ */
+char **stringDyn_split(char *s, char *d, int n, int *n_tab){
+    char **tab;
+    char *tofree;
+    char *string;
+    char *tmp;
+    int i = 0;
+
+    tofree = string = strdup(s);
+
+    // Allocating memory for the first time
+    *n_tab = 1;
+    tab = (char **)malloc((*n_tab) * sizeof(char *));
+    if(tab == NULL){
+        return NULL;
+    }
+
+    tmp = strsep(&string, d);
+    // Checking if there is at least one element
+    if(tmp == NULL){
+        free(tofree);
+        free(tab);
+        return NULL;
+    }
+    tab[i] = tmp;
+    i++;
+
+    while((tmp = strsep(&string, d)) != NULL && ((n <= 0) || (n > 0 && i < n)))
+    {
+        *n_tab += 1;
+        tab = (char **)realloc(tab, (*n_tab) * sizeof(char *));
+        if(tab == NULL)
+        {
+            return NULL;
+        }
+
+        tab[i] = tmp;
+        i++;
+    }
+
+    free(tofree);
+
+    return tab;
+}
+
+/**
  * Take an int and return a string encoding this integer
  * Return NULL if failed
 */

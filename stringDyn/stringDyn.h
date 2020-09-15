@@ -44,6 +44,16 @@ char *stringDyn_concat_new(char *s1, char *s2);
 char *stringDyn_concat_realloc(char *s1, char *s2);
 
 /**
+ *  Return an array of string value
+ *
+ *  s: the string to split
+ *  d: the delimiter to use
+ *  n: the number of cut to make (0 to split as much as the number of delimiter found)
+ *  n_tab: while store the size of the resulting array
+ */
+char **stringDyn_split(char *s, char *d, int n, int *n_tab);
+
+/**
  * Take an int and return a string encoding this integer
  * Return NULL if failed
 */
@@ -54,6 +64,5 @@ char *stringDyn_int_to_string(int n);
  * n: the number of value to keep after the .
 */
 char *stringDyn_float_to_string(float d, int n);
-
 
 #endif
