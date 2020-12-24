@@ -2,21 +2,26 @@
 
 int main()
 {
-    int n_tab;
-    int i;
-    char **tab;
-    char *test = strdup("Bonjour Saint-Louis !!!  !!");
+    char *debut = strdup("debut");
+    char *fin = strdup("fin");
+    char *new = NULL;
 
-    tab = stringDyn_split(test, " ", 1, &n_tab);
-    fprintf(stdout, "%s\n", test);
-    fprintf(stdout, "%d\n", n_tab);
+    debut = stringDyn_concat_realloc(debut, fin);
 
-    for(i = 0; i < n_tab; i++)
-    {
-        fprintf(stdout, "%s\n", tab[i]);
-    }
+    fprintf(stdout, "%d\n", strlen(fin));
+    fprintf(stdout, "%s %d\n", debut, strlen(debut));
 
-    // fprintf(stdout, "%s\n", test);
+    new = stringDyn_concat_new(debut, fin);
+
+    fprintf(stdout, "%s %d\n", new, strlen(new));
+
+    fprintf(stdout, "TEST_1\n");
+    free(debut);
+    fprintf(stdout, "TEST_2\n");
+    free(fin);
+    fprintf(stdout, "TEST_3\n");
+    free(new);
+    fprintf(stdout, "TEST_4\n");
 
     return EXIT_SUCCESS;
 }
