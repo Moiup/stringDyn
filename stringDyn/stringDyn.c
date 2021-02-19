@@ -119,6 +119,19 @@ char **stringDyn_split(char *s, char *d, int n, int *n_tab){
 }
 
 /**
+ * Free an array gotten after a split on a string
+ *
+ * src (in out): array of string gotten with stringDyn_split
+ *
+ * Return: a freed array of string
+ */
+char **stringDyn_free_splited_char(char **src){
+    free(src[0]);
+    free(src);
+    return src;
+}
+
+/**
  * Take an int and return a string encoding this integer
  * Return NULL if failed
 */
