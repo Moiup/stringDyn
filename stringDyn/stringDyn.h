@@ -60,7 +60,7 @@ char **stringDyn_split(char *s, char *d, int n, int *n_tab);
  *
  * Return: a freed array of string
  */
-char **stringDyn_free_splited_char(char **src);
+char **stringDyn_free_splited_char(char **src, int *n_tab);
 
 /**
  * Take an int and return a string encoding this integer

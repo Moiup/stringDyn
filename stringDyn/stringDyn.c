@@ -97,7 +97,7 @@ char **stringDyn_split(char *s, char *d, int n, int *n_tab){
         free(tab);
         return NULL;
     }
-    tab[i] = tmp;
+    tab[i] = strdup(tmp);
     i++;
 
     while((tmp = strsep(&string, d)) != NULL && ((n <= 0) || (n > 0 && i < n)))
@@ -109,7 +109,7 @@ char **stringDyn_split(char *s, char *d, int n, int *n_tab){
             return NULL;
         }
 
-        tab[i] = tmp;
+        tab[i] = strdup(tmp);
         i++;
     }
 
@@ -122,12 +122,21 @@ char **stringDyn_split(char *s, char *d, int n, int *n_tab){
  * Free an array gotten after a split on a string
  *
  * src (in out): array of string gotten with stringDyn_split
+ * n_tab (in out): length of the array. Will be set to 0.
  *
  * Return: a freed array of string
  */
-char **stringDyn_free_splited_char(char **src){
-    free(src[0]);
+char **stringDyn_free_splited_char(char **src, int *n_tab){
+    int i;
+
+    for (i = 0; i < *n_tab; i++){
+        free(src[i]);
+    }
+
     free(src);
+    
+    *n_tab = 0;
+
     return src;
 }
 
